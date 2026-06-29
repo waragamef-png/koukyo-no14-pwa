@@ -1,0 +1,372 @@
+:root {
+  color-scheme: light;
+  --ink: #20242a;
+  --muted: #68707c;
+  --line: #d7dbe2;
+  --paper: #f8f5ee;
+  --panel: #ffffff;
+  --accent: #1f6f68;
+  --accent-2: #9b3d2e;
+  --ok: #16724c;
+  --bad: #b0332e;
+  --shadow: 0 18px 40px rgba(32, 36, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #eceff2;
+  color: var(--ink);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.08fr) minmax(360px, 0.92fr);
+  gap: 18px;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.print-pane,
+.study-pane {
+  min-width: 0;
+}
+
+.print-pane {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+}
+
+.pane-header,
+.quiz-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(22px, 3vw, 34px);
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.progress {
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 58px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.progress strong,
+.progress span:first-child {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.progress span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.print-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.print-tools button,
+.tabs button,
+.card-stage button {
+  min-width: 42px;
+  height: 38px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.print-tools button:last-child {
+  margin-left: auto;
+  padding: 0 14px;
+}
+
+.print-frame {
+  overflow: auto;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.print-frame img {
+  display: block;
+  width: var(--print-width, 100%);
+  max-width: none;
+  transform-origin: top left;
+}
+
+.study-pane {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  height: 48px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.tab:last-child {
+  border-right: 0;
+}
+
+.tab.active {
+  background: var(--accent);
+  color: white;
+}
+
+.view {
+  display: none;
+  overflow: auto;
+  padding: 22px;
+}
+
+.view.active {
+  display: block;
+}
+
+.summary-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.summary-item {
+  border-left: 4px solid var(--accent);
+  padding: 12px 14px;
+  background: #f5f7f7;
+}
+
+.summary-item h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.summary-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.quiz-head {
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+select {
+  min-width: 148px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  padding: 0 10px;
+}
+
+.question-list {
+  display: grid;
+  gap: 14px;
+}
+
+.question {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.question header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.question p {
+  margin: 0 0 12px;
+  line-height: 1.7;
+}
+
+.answer-row {
+  display: flex;
+  gap: 8px;
+}
+
+.answer-row input {
+  min-width: 0;
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 10px;
+}
+
+.answer-row button {
+  width: 72px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: white;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.choices button {
+  min-height: 42px;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: left;
+}
+
+.feedback {
+  min-height: 22px;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.feedback.ok {
+  color: var(--ok);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.card-stage {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.flash-card {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  min-height: 310px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  background: #f5f7f7;
+  cursor: pointer;
+}
+
+.flash-card p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.flash-card strong {
+  display: none;
+  color: var(--accent-2);
+  font-size: 28px;
+}
+
+.flash-card.revealed strong {
+  display: block;
+}
+
+.flash-card span,
+.card-count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 920px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .print-frame {
+    max-height: 62vh;
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    padding: 10px;
+  }
+
+  .pane-header,
+  .quiz-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .progress {
+    width: 100%;
+  }
+
+  .choices {
+    grid-template-columns: 1fr;
+  }
+
+  .view {
+    padding: 16px;
+  }
+}

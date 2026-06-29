@@ -1,0 +1,26 @@
+{
+  "name": "公共 No.14 学習アプリ",
+  "short_name": "公共No.14",
+  "description": "授業プリントを見ながら日本国憲法の基本的性格を学習するアプリです。",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eceff2",
+  "theme_color": "#1f6f68",
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
