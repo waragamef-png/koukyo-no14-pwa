@@ -126,9 +126,13 @@ function normalize(value) {
 
 function isCorrect(value, answers) {
   const normalized = normalize(value);
+  if (!normalized) {
+    return false;
+  }
+
   return answers.some((answer) => {
     const expected = normalize(answer);
-    return normalized === expected || normalized.includes(expected) || expected.includes(normalized);
+    return normalized === expected || normalized.includes(expected);
   });
 }
 
