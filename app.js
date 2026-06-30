@@ -145,9 +145,12 @@ function q(category, prompt, answers, type, choices = []) {
 const state = {
   results: new Map(),
   zoom: 100,
+  pinchStartDistance: 0,
+  pinchStartZoom: 100,
   cardIndex: 0,
   cardRevealed: false,
   filter: "all",
+  cardFilter: "all",
   printIndex: 0
 };
 
@@ -156,7 +159,9 @@ const elements = {
   summaryList: document.querySelector("#summaryList"),
   questionList: document.querySelector("#questionList"),
   categoryFilter: document.querySelector("#categoryFilter"),
+  cardCategoryFilter: document.querySelector("#cardCategoryFilter"),
   printPageSelect: document.querySelector("#printPageSelect"),
+  printFrame: document.querySelector(".print-frame"),
   printImage: document.querySelector("#printImage"),
   cardPrompt: document.querySelector("#cardPrompt"),
   cardAnswer: document.querySelector("#cardAnswer"),
@@ -168,8 +173,6 @@ document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => switchView(tab.dataset.view));
 });
 
-document.querySelector("#zoomIn").addEventListener("click", () => setZoom(state.zoom + 12));
-document.querySelector("#zoomOut").addEventListener("click", () => setZoom(state.zoom - 12));
 document.querySelector("#resetQuiz").addEventListener("click", resetQuiz);
 document.querySelector("#prevPrint").addEventListener("click", () => movePrint(-1));
 document.querySelector("#nextPrint").addEventListener("click", () => movePrint(1));
@@ -186,10 +189,21 @@ elements.categoryFilter.addEventListener("change", (event) => {
   state.filter = event.target.value;
   renderQuestions();
 });
+elements.cardCategoryFilter.addEventListener("change", (event) => {
+  state.cardFilter = event.target.value;
+  const firstIndex = questions.findIndex((item) => state.cardFilter === "all" || item.category === state.cardFilter);
+  state.cardIndex = Math.max(0, firstIndex);
+  state.cardRevealed = false;
+  renderCard();
+});
 elements.printPageSelect.addEventListener("change", (event) => {
   state.printIndex = Number(event.target.value);
   renderPrint();
 });
+elements.printFrame.addEventListener("touchstart", handlePrintTouchStart, { passive: false });
+elements.printFrame.addEventListener("touchmove", handlePrintTouchMove, { passive: false });
+elements.printFrame.addEventListener("touchend", resetPinchState);
+elements.printFrame.addEventListener("touchcancel", resetPinchState);
 
 function switchView(viewName) {
   document.querySelectorAll(".tab").forEach((tab) => {
@@ -201,8 +215,37 @@ function switchView(viewName) {
 }
 
 function setZoom(nextZoom) {
-  state.zoom = Math.max(60, Math.min(180, nextZoom));
+  state.zoom = Math.max(70, Math.min(220, nextZoom));
   elements.printImage.style.setProperty("--print-width", `${state.zoom}%`);
+}
+
+function getTouchDistance(touches) {
+  const [first, second] = touches;
+  return Math.hypot(first.clientX - second.clientX, first.clientY - second.clientY);
+}
+
+function handlePrintTouchStart(event) {
+  if (event.touches.length !== 2) {
+    return;
+  }
+
+  event.preventDefault();
+  state.pinchStartDistance = getTouchDistance(event.touches);
+  state.pinchStartZoom = state.zoom;
+}
+
+function handlePrintTouchMove(event) {
+  if (event.touches.length !== 2 || !state.pinchStartDistance) {
+    return;
+  }
+
+  event.preventDefault();
+  const distance = getTouchDistance(event.touches);
+  setZoom(state.pinchStartZoom * (distance / state.pinchStartDistance));
+}
+
+function resetPinchState() {
+  state.pinchStartDistance = 0;
 }
 
 function movePrint(direction) {
@@ -262,10 +305,12 @@ function renderSummary() {
 function renderFilters() {
   const categories = [...new Set(questions.map((item) => item.category))];
   categories.forEach((category) => {
-    const option = document.createElement("option");
-    option.value = category;
-    option.textContent = category;
-    elements.categoryFilter.appendChild(option);
+    [elements.categoryFilter, elements.cardCategoryFilter].forEach((select) => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      select.appendChild(option);
+    });
   });
 }
 
@@ -350,10 +395,17 @@ function updateScore() {
 }
 
 function renderCard() {
+  const cardItems = getCardItems();
+  let relativeIndex = cardItems.findIndex((item) => questions.indexOf(item) === state.cardIndex);
+  if (relativeIndex === -1) {
+    state.cardIndex = questions.indexOf(cardItems[0]);
+    relativeIndex = 0;
+  }
+
   const item = questions[state.cardIndex];
   elements.cardPrompt.textContent = item.prompt;
   elements.cardAnswer.textContent = item.answers[0];
-  elements.cardCount.textContent = `${state.cardIndex + 1} / ${questions.length}`;
+  elements.cardCount.textContent = `${Math.max(1, relativeIndex + 1)} / ${cardItems.length} ・ ${item.category}`;
   elements.flashCard.classList.toggle("revealed", state.cardRevealed);
 }
 
@@ -363,9 +415,16 @@ function revealCard() {
 }
 
 function moveCard(direction) {
-  state.cardIndex = (state.cardIndex + direction + questions.length) % questions.length;
+  const cardItems = getCardItems();
+  const currentIndex = cardItems.findIndex((item) => questions.indexOf(item) === state.cardIndex);
+  const nextIndex = (currentIndex + direction + cardItems.length) % cardItems.length;
+  state.cardIndex = questions.indexOf(cardItems[nextIndex]);
   state.cardRevealed = false;
   renderCard();
+}
+
+function getCardItems() {
+  return state.cardFilter === "all" ? questions : questions.filter((item) => item.category === state.cardFilter);
 }
 
 renderSummary();

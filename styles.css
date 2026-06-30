@@ -29,6 +29,7 @@ button,
 input,
 select {
   font: inherit;
+  touch-action: manipulation;
 }
 
 button {
@@ -142,6 +143,8 @@ h2 {
   border: 1px solid var(--line);
   background: var(--paper);
   box-shadow: var(--shadow);
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
 }
 
 .print-frame img {
@@ -149,6 +152,8 @@ h2 {
   width: var(--print-width, 100%);
   max-width: none;
   transform-origin: top left;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .study-pane {
@@ -215,9 +220,16 @@ h2 {
   line-height: 1.7;
 }
 
-.quiz-head {
+.quiz-head,
+.card-head {
   align-items: center;
   margin-bottom: 16px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 select {
@@ -375,7 +387,7 @@ select {
 
   .print-tools {
     display: grid;
-    grid-template-columns: 42px 42px 42px minmax(0, 1fr) 42px;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
     gap: 6px;
     width: 100%;
   }
@@ -400,6 +412,11 @@ select {
 
   .choices {
     grid-template-columns: 1fr;
+  }
+
+  .card-head {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .view {

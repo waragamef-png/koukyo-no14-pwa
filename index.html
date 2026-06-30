@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>公共 No.8-14 学習アプリ</title>
     <meta name="theme-color" content="#1f6f68" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
-    <link rel="stylesheet" href="./styles.css?v=4" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
   </head>
   <body>
     <main class="app">
@@ -26,8 +26,6 @@
           </div>
         </div>
         <div class="print-tools">
-          <button id="zoomOut" type="button" aria-label="縮小">−</button>
-          <button id="zoomIn" type="button" aria-label="拡大">＋</button>
           <button id="prevPrint" type="button" aria-label="前のプリント">‹</button>
           <select id="printPageSelect" aria-label="表示するプリント"></select>
           <button id="nextPrint" type="button" aria-label="次のプリント">›</button>
@@ -51,7 +49,12 @@
         </section>
 
         <section id="cardsView" class="view">
-          <h2>暗記カード</h2>
+          <div class="card-head">
+            <h2>暗記カード</h2>
+            <select id="cardCategoryFilter" aria-label="暗記カードの単元を選ぶ">
+              <option value="all">全範囲</option>
+            </select>
+          </div>
           <div class="card-stage">
             <button id="prevCard" type="button" aria-label="前のカード">‹</button>
             <article id="flashCard" class="flash-card" tabindex="0">
@@ -79,6 +82,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=4"></script>
+    <script src="./app.js?v=5"></script>
   </body>
 </html>
