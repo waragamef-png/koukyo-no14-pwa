@@ -143,6 +143,10 @@ h2 {
   white-space: nowrap;
 }
 
+.reset-row {
+  display: contents;
+}
+
 .print-frame {
   overflow: auto;
   border: 1px solid var(--line);
@@ -408,13 +412,20 @@ select {
     padding: 0 12px;
   }
 
-  .print-action,
-  .print-tools button:last-child {
-    grid-column: span 3;
+  .reset-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .reset-row button {
+    width: 100%;
   }
 
   .print-frame {
-    height: clamp(240px, 42vh, 390px);
+    aspect-ratio: 1847 / 1260;
+    height: auto;
     max-width: 100%;
     overflow: auto;
   }
