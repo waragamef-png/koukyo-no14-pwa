@@ -161,6 +161,7 @@ const elements = {
   categoryFilter: document.querySelector("#categoryFilter"),
   cardCategoryFilter: document.querySelector("#cardCategoryFilter"),
   printPageSelect: document.querySelector("#printPageSelect"),
+  resetView: document.querySelector("#resetView"),
   printFrame: document.querySelector(".print-frame"),
   printImage: document.querySelector("#printImage"),
   cardPrompt: document.querySelector("#cardPrompt"),
@@ -174,6 +175,7 @@ document.querySelectorAll(".tab").forEach((tab) => {
 });
 
 document.querySelector("#resetQuiz").addEventListener("click", resetQuiz);
+elements.resetView.addEventListener("click", resetPrintView);
 document.querySelector("#prevPrint").addEventListener("click", () => movePrint(-1));
 document.querySelector("#nextPrint").addEventListener("click", () => movePrint(1));
 document.querySelector("#prevCard").addEventListener("click", () => moveCard(-1));
@@ -186,19 +188,21 @@ elements.flashCard.addEventListener("keydown", (event) => {
   }
 });
 elements.categoryFilter.addEventListener("change", (event) => {
-  state.filter = event.target.value;
+  syncScope(event.target.value);
   renderQuestions();
+  renderCard();
 });
 elements.cardCategoryFilter.addEventListener("change", (event) => {
-  state.cardFilter = event.target.value;
-  const firstIndex = questions.findIndex((item) => state.cardFilter === "all" || item.category === state.cardFilter);
-  state.cardIndex = Math.max(0, firstIndex);
-  state.cardRevealed = false;
+  syncScope(event.target.value);
+  renderQuestions();
   renderCard();
 });
 elements.printPageSelect.addEventListener("change", (event) => {
   state.printIndex = Number(event.target.value);
+  syncScope(categoryForPrintIndex(state.printIndex), { includePrint: false });
   renderPrint();
+  renderQuestions();
+  renderCard();
 });
 elements.printFrame.addEventListener("touchstart", handlePrintTouchStart, { passive: false });
 elements.printFrame.addEventListener("touchmove", handlePrintTouchMove, { passive: false });
@@ -250,7 +254,10 @@ function resetPinchState() {
 
 function movePrint(direction) {
   state.printIndex = (state.printIndex + direction + printPages.length) % printPages.length;
+  syncScope(categoryForPrintIndex(state.printIndex), { includePrint: false });
   renderPrint();
+  renderQuestions();
+  renderCard();
 }
 
 function renderPrint() {
@@ -258,6 +265,41 @@ function renderPrint() {
   elements.printImage.src = page.src;
   elements.printImage.alt = `${page.title} の授業プリント`;
   elements.printPageSelect.value = String(state.printIndex);
+}
+
+function resetPrintView() {
+  resetPinchState();
+  setZoom(100);
+  elements.printFrame.scrollLeft = 0;
+  elements.printFrame.scrollTop = 0;
+}
+
+function categoryForPrintIndex(index) {
+  return printPages[index].title.split(" ")[0];
+}
+
+function printIndexForCategory(category) {
+  return printPages.findIndex((page) => page.title.startsWith(`${category} `));
+}
+
+function syncScope(category, options = {}) {
+  const includePrint = options.includePrint !== false;
+  state.filter = category;
+  state.cardFilter = category;
+  elements.categoryFilter.value = category;
+  elements.cardCategoryFilter.value = category;
+  const firstIndex = questions.findIndex((item) => category === "all" || item.category === category);
+  state.cardIndex = Math.max(0, firstIndex);
+  state.cardRevealed = false;
+  renderSummary();
+
+  if (includePrint && category !== "all") {
+    const nextPrintIndex = printIndexForCategory(category);
+    if (nextPrintIndex !== -1) {
+      state.printIndex = nextPrintIndex;
+      renderPrint();
+    }
+  }
 }
 
 function resetQuiz() {
@@ -290,7 +332,8 @@ function isCorrect(value, answers) {
 }
 
 function renderSummary() {
-  elements.summaryList.innerHTML = summary
+  const filteredSummary = state.filter === "all" ? summary : summary.filter((item) => item.title.startsWith(state.filter));
+  elements.summaryList.innerHTML = filteredSummary
     .map(
       (item) => `
         <article class="summary-item">

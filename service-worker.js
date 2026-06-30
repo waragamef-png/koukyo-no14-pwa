@@ -1,9 +1,9 @@
-const CACHE_NAME = "koukyo-no8-14-v6";
+const CACHE_NAME = "koukyo-no8-14-v8";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=5",
-  "./app.js?v=5",
+  "./styles.css?v=7",
+  "./app.js?v=7",
   "./manifest.webmanifest",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",

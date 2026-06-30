@@ -138,6 +138,11 @@ h2 {
   white-space: nowrap;
 }
 
+.print-action {
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
 .print-frame {
   overflow: auto;
   border: 1px solid var(--line);
@@ -399,9 +404,13 @@ select {
   }
 
   .print-tools button:last-child {
-    grid-column: 1 / -1;
     margin-left: 0;
     padding: 0 12px;
+  }
+
+  .print-action,
+  .print-tools button:last-child {
+    grid-column: span 3;
   }
 
   .print-frame {
