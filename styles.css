@@ -134,6 +134,7 @@ h2 {
 .print-tools button:last-child {
   margin-left: auto;
   padding: 0 14px;
+  white-space: nowrap;
 }
 
 .print-frame {
@@ -374,7 +375,7 @@ select {
 
   .print-tools {
     display: grid;
-    grid-template-columns: 42px 42px 42px minmax(0, 1fr) 42px 76px;
+    grid-template-columns: 42px 42px 42px minmax(0, 1fr) 42px;
     gap: 6px;
     width: 100%;
   }
@@ -386,11 +387,13 @@ select {
   }
 
   .print-tools button:last-child {
+    grid-column: 1 / -1;
     margin-left: 0;
-    padding: 0 8px;
+    padding: 0 12px;
   }
 
   .print-frame {
+    height: clamp(240px, 42vh, 390px);
     max-width: 100%;
     overflow: auto;
   }
