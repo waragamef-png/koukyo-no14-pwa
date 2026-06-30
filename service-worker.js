@@ -1,11 +1,17 @@
-const CACHE_NAME = "koukyo-no14-v1";
+const CACHE_NAME = "koukyo-no8-14-v1";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./assets/koukyo-no14.jpg",
+  "./assets/prints/koukyo-08.jpg",
+  "./assets/prints/koukyo-09.jpg",
+  "./assets/prints/koukyo-10.jpg",
+  "./assets/prints/koukyo-11.jpg",
+  "./assets/prints/koukyo-12.jpg",
+  "./assets/prints/koukyo-13.jpg",
+  "./assets/prints/koukyo-14.jpg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png"
 ];

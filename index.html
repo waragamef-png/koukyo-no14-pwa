@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>公共 No.14 学習アプリ</title>
+    <title>公共 No.8-14 学習アプリ</title>
     <meta name="theme-color" content="#1f6f68" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="公共 No.14" />
+    <meta name="apple-mobile-web-app-title" content="公共 No.8-14" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
@@ -18,7 +18,7 @@
         <div class="pane-header">
           <div>
             <p class="eyebrow">読み込み済みプリント</p>
-            <h1>公共 No.14 日本国憲法の基本的性格</h1>
+            <h1>公共 No.8-14 学習アプリ</h1>
           </div>
           <div class="progress">
             <span id="scoreText">0 / 0</span>
@@ -28,10 +28,13 @@
         <div class="print-tools">
           <button id="zoomOut" type="button" aria-label="縮小">−</button>
           <button id="zoomIn" type="button" aria-label="拡大">＋</button>
+          <button id="prevPrint" type="button" aria-label="前のプリント">‹</button>
+          <select id="printPageSelect" aria-label="表示するプリント"></select>
+          <button id="nextPrint" type="button" aria-label="次のプリント">›</button>
           <button id="resetQuiz" type="button">リセット</button>
         </div>
         <div class="print-frame">
-          <img id="printImage" src="./assets/koukyo-no14.jpg" alt="公共 No.14 の授業プリント" />
+          <img id="printImage" src="./assets/prints/koukyo-08.jpg" alt="公共の授業プリント" />
         </div>
       </section>
 
