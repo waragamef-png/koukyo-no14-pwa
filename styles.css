@@ -22,6 +22,7 @@ body {
   background: #eceff2;
   color: var(--ink);
   font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 button,
@@ -127,6 +128,7 @@ h2 {
 .print-tools select {
   min-width: 190px;
   max-width: 48%;
+  width: auto;
 }
 
 .print-tools button:last-child {
@@ -356,6 +358,8 @@ select {
 @media (max-width: 560px) {
   .app {
     padding: 10px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .pane-header,
@@ -366,6 +370,29 @@ select {
 
   .progress {
     width: 100%;
+  }
+
+  .print-tools {
+    display: grid;
+    grid-template-columns: 42px 42px 42px minmax(0, 1fr) 42px 76px;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .print-tools select {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .print-tools button:last-child {
+    margin-left: 0;
+    padding: 0 8px;
+  }
+
+  .print-frame {
+    max-width: 100%;
+    overflow: auto;
   }
 
   .choices {

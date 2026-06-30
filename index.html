@@ -41,26 +41,13 @@
       <section class="study-pane" aria-label="問題演習">
         <nav class="tabs" aria-label="学習モード">
           <button class="tab active" data-view="summary" type="button">要点</button>
-          <button class="tab" data-view="quiz" type="button">問題</button>
           <button class="tab" data-view="cards" type="button">暗記</button>
+          <button class="tab" data-view="quiz" type="button">問題</button>
         </nav>
 
         <section id="summaryView" class="view active">
           <h2>プリントの要点</h2>
           <div id="summaryList" class="summary-list"></div>
-        </section>
-
-        <section id="quizView" class="view">
-          <div class="quiz-head">
-            <div>
-              <p class="eyebrow">自動作成問題</p>
-              <h2>穴埋め・選択・記述</h2>
-            </div>
-            <select id="categoryFilter" aria-label="単元を選ぶ">
-              <option value="all">全範囲</option>
-            </select>
-          </div>
-          <div id="questionList" class="question-list"></div>
         </section>
 
         <section id="cardsView" class="view">
@@ -75,6 +62,19 @@
             <button id="nextCard" type="button" aria-label="次のカード">›</button>
           </div>
           <p id="cardCount" class="card-count"></p>
+        </section>
+
+        <section id="quizView" class="view">
+          <div class="quiz-head">
+            <div>
+              <p class="eyebrow">自動作成問題</p>
+              <h2>穴埋め・選択・記述</h2>
+            </div>
+            <select id="categoryFilter" aria-label="単元を選ぶ">
+              <option value="all">全範囲</option>
+            </select>
+          </div>
+          <div id="questionList" class="question-list"></div>
         </section>
       </section>
     </main>
