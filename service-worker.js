@@ -1,17 +1,22 @@
-const CACHE_NAME = "koukyo-no8-14-v10";
+const CACHE_NAME = "nihonshi-no11-22-v1";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=9",
-  "./app.js?v=9",
+  "./styles.css?v=10",
+  "./app.js?v=10",
   "./manifest.webmanifest",
-  "./assets/prints/koukyo-08.jpg",
-  "./assets/prints/koukyo-09.jpg",
-  "./assets/prints/koukyo-10.jpg",
-  "./assets/prints/koukyo-11.jpg",
-  "./assets/prints/koukyo-12.jpg",
-  "./assets/prints/koukyo-13.jpg",
-  "./assets/prints/koukyo-14.jpg",
+  "./assets/prints/nihonshi/nihonshi-01.jpg",
+  "./assets/prints/nihonshi/nihonshi-02.jpg",
+  "./assets/prints/nihonshi/nihonshi-03.jpg",
+  "./assets/prints/nihonshi/nihonshi-04.jpg",
+  "./assets/prints/nihonshi/nihonshi-05.jpg",
+  "./assets/prints/nihonshi/nihonshi-06.jpg",
+  "./assets/prints/nihonshi/nihonshi-07.jpg",
+  "./assets/prints/nihonshi/nihonshi-08.jpg",
+  "./assets/prints/nihonshi/nihonshi-09.jpg",
+  "./assets/prints/nihonshi/nihonshi-10.jpg",
+  "./assets/prints/nihonshi/nihonshi-11.jpg",
+  "./assets/prints/nihonshi/nihonshi-12.jpg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png"
 ];
