@@ -1,9 +1,9 @@
-const CACHE_NAME = "study-app-switcher-v1";
+const CACHE_NAME = "study-app-switcher-v2";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=11",
-  "./app.js?v=11",
+  "./styles.css?v=12",
+  "./app.js?v=12",
   "./manifest.webmanifest",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",

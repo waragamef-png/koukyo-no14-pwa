@@ -111,22 +111,6 @@ h2 {
   font-size: 12px;
 }
 
-.subject-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.subject-row label {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.subject-row select {
-  min-width: 180px;
-}
-
 .print-tools {
   display: flex;
   align-items: center;
@@ -264,6 +248,19 @@ select {
   border-radius: 6px;
   background: white;
   padding: 0 10px;
+}
+
+select.title-select {
+  min-width: min(100%, 520px);
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0 28px 0 0;
+  font-size: inherit;
+  font-weight: 800;
+  line-height: 1.25;
 }
 
 .question-list {
@@ -410,13 +407,7 @@ select {
     width: 100%;
   }
 
-  .subject-row {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    width: 100%;
-  }
-
-  .subject-row select {
+  .title-select {
     min-width: 0;
     width: 100%;
   }

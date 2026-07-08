@@ -445,8 +445,6 @@ const state = {
 };
 
 const elements = {
-  appTitle: document.querySelector("#appTitle"),
-  appSubject: document.querySelector("#appSubject"),
   subjectSelect: document.querySelector("#subjectSelect"),
   scoreText: document.querySelector("#scoreText"),
   summaryList: document.querySelector("#summaryList"),
@@ -789,8 +787,6 @@ function applyDataset(datasetId) {
   state.cardFilter = "all";
   state.printIndex = 0;
   elements.subjectSelect.value = currentDataset.id;
-  elements.appSubject.textContent = currentDataset.shortTitle;
-  elements.appTitle.textContent = currentDataset.title;
   document.title = currentDataset.title;
   resetPinchState();
   setZoom(100);

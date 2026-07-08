@@ -10,27 +10,25 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
-    <link rel="stylesheet" href="./styles.css?v=11" />
+    <link rel="stylesheet" href="./styles.css?v=12" />
   </head>
   <body>
     <main class="app">
       <section class="print-pane" aria-label="読み込んだ日本史探究の授業プリント">
         <div class="pane-header">
           <div>
-            <p id="appSubject" class="eyebrow">日本史探究</p>
-            <h1 id="appTitle">日本史探究 No.11-22 学習アプリ</h1>
+            <p class="eyebrow">読み込み済みプリント</p>
+            <h1>
+              <select id="subjectSelect" class="title-select" aria-label="表示する教科を選ぶ">
+                <option value="nihonshi">日本史探究 No.11-22 学習アプリ</option>
+                <option value="koukyo">公共 No.8-14 学習アプリ</option>
+              </select>
+            </h1>
           </div>
           <div class="progress">
             <span id="scoreText">0 / 0</span>
             <span>正解</span>
           </div>
-        </div>
-        <div class="subject-row">
-          <label for="subjectSelect">教科</label>
-          <select id="subjectSelect" aria-label="表示する教科を選ぶ">
-            <option value="nihonshi">日本史探究</option>
-            <option value="koukyo">公共</option>
-          </select>
         </div>
         <div class="print-tools">
           <button id="prevPrint" type="button" aria-label="前のプリント">‹</button>
@@ -92,6 +90,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=11"></script>
+    <script src="./app.js?v=12"></script>
   </body>
 </html>
