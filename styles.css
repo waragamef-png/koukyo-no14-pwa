@@ -111,6 +111,22 @@ h2 {
   font-size: 12px;
 }
 
+.subject-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subject-row label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.subject-row select {
+  min-width: 180px;
+}
+
 .print-tools {
   display: flex;
   align-items: center;
@@ -391,6 +407,17 @@ select {
   }
 
   .progress {
+    width: 100%;
+  }
+
+  .subject-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .subject-row select {
+    min-width: 0;
     width: 100%;
   }
 

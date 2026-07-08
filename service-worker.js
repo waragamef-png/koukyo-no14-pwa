@@ -1,10 +1,17 @@
-const CACHE_NAME = "nihonshi-no11-22-v1";
+const CACHE_NAME = "study-app-switcher-v1";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=10",
-  "./app.js?v=10",
+  "./styles.css?v=11",
+  "./app.js?v=11",
   "./manifest.webmanifest",
+  "./assets/prints/koukyo-08.jpg",
+  "./assets/prints/koukyo-09.jpg",
+  "./assets/prints/koukyo-10.jpg",
+  "./assets/prints/koukyo-11.jpg",
+  "./assets/prints/koukyo-12.jpg",
+  "./assets/prints/koukyo-13.jpg",
+  "./assets/prints/koukyo-14.jpg",
   "./assets/prints/nihonshi/nihonshi-01.jpg",
   "./assets/prints/nihonshi/nihonshi-02.jpg",
   "./assets/prints/nihonshi/nihonshi-03.jpg",
