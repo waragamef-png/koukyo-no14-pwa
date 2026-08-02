@@ -1,9 +1,9 @@
-const CACHE_NAME = "study-app-switcher-v2";
+const CACHE_NAME = "study-app-switcher-v3";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=12",
-  "./app.js?v=12",
+  "./styles.css?v=13",
+  "./app.js?v=13",
   "./manifest.webmanifest",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",
@@ -24,6 +24,24 @@ const ASSETS = [
   "./assets/prints/nihonshi/nihonshi-10.jpg",
   "./assets/prints/nihonshi/nihonshi-11.jpg",
   "./assets/prints/nihonshi/nihonshi-12.jpg",
+  "./assets/prints/kenpo/2025-q-01.jpg",
+  "./assets/prints/kenpo/2025-a-01.jpg",
+  "./assets/prints/kenpo/2025-a-02.jpg",
+  "./assets/prints/kenpo/2025-a-03.jpg",
+  "./assets/prints/kenpo/2023-q-01.jpg",
+  "./assets/prints/kenpo/2023-sheet-01.jpg",
+  "./assets/prints/kenpo/2023-sheet-02.jpg",
+  "./assets/prints/kenpo/2022-q-01.jpg",
+  "./assets/prints/kenpo/2022-q-02.jpg",
+  "./assets/prints/kenpo/2022-a-01.jpg",
+  "./assets/prints/kenpo/2022-a-02.jpg",
+  "./assets/prints/kenpo/2022-a-03.jpg",
+  "./assets/prints/kenpo/2016-q-01.jpg",
+  "./assets/prints/kenpo/2016-a-01.jpg",
+  "./assets/prints/kenpo/2016-sheet-01.jpg",
+  "./assets/prints/kenpo/2016-sheet-02.jpg",
+  "./assets/prints/kenpo/2022-sheet-01.jpg",
+  "./assets/prints/kenpo/2022-sheet-02.jpg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png"
 ];
