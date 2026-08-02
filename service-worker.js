@@ -1,9 +1,9 @@
-const CACHE_NAME = "study-app-switcher-v3";
+const CACHE_NAME = "study-app-switcher-v5";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=13",
-  "./app.js?v=13",
+  "./styles.css?v=15",
+  "./app.js?v=15",
   "./manifest.webmanifest",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",
@@ -42,6 +42,8 @@ const ASSETS = [
   "./assets/prints/kenpo/2016-sheet-02.jpg",
   "./assets/prints/kenpo/2022-sheet-01.jpg",
   "./assets/prints/kenpo/2022-sheet-02.jpg",
+  "./assets/prints/chigaku/chigaku-01.jpg",
+  "./assets/prints/chigaku/chigaku-02.jpg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png"
 ];
