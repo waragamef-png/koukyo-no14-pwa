@@ -1,9 +1,9 @@
-const CACHE_NAME = "study-app-switcher-v6";
+const CACHE_NAME = "study-app-switcher-v7";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=16",
-  "./app.js?v=16",
+  "./styles.css?v=17",
+  "./app.js?v=17",
   "./manifest.webmanifest",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",
@@ -44,6 +44,14 @@ const ASSETS = [
   "./assets/prints/kenpo/2022-sheet-02.jpg",
   "./assets/prints/chigaku/chigaku-01.jpg",
   "./assets/prints/chigaku/chigaku-02.jpg",
+  "./assets/prints/english-grammar/grammar-2024-q-1.jpg",
+  "./assets/prints/english-grammar/grammar-2024-q-2.jpg",
+  "./assets/prints/english-grammar/grammar-2024-a-1.jpg",
+  "./assets/prints/english-grammar/grammar-2024-a-2.jpg",
+  "./assets/prints/english-grammar/grammar-2025-q-1.jpg",
+  "./assets/prints/english-grammar/grammar-2025-q-2.jpg",
+  "./assets/prints/english-grammar/grammar-2025-a-1.jpg",
+  "./assets/prints/english-grammar/grammar-2025-a-2.jpg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png"
 ];

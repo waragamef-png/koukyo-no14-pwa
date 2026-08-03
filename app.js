@@ -509,6 +509,111 @@ function q(category, prompt, answers, type = "fill", choices = []) {
       questions
     });
   })(),
+  englishGrammar: (() => {
+    const printPages = [
+      { category: "2024", title: "2024 試験問題 1", src: "./assets/prints/english-grammar/grammar-2024-q-1.jpg" },
+      { category: "2024", title: "2024 試験問題 2", src: "./assets/prints/english-grammar/grammar-2024-q-2.jpg" },
+      { category: "2024", title: "2024 解答 1", src: "./assets/prints/english-grammar/grammar-2024-a-1.jpg" },
+      { category: "2024", title: "2024 解答 2", src: "./assets/prints/english-grammar/grammar-2024-a-2.jpg" },
+      { category: "2025", title: "2025 試験問題 1", src: "./assets/prints/english-grammar/grammar-2025-q-1.jpg" },
+      { category: "2025", title: "2025 試験問題 2", src: "./assets/prints/english-grammar/grammar-2025-q-2.jpg" },
+      { category: "2025", title: "2025 解答 1", src: "./assets/prints/english-grammar/grammar-2025-a-1.jpg" },
+      { category: "2025", title: "2025 解答 2", src: "./assets/prints/english-grammar/grammar-2025-a-2.jpg" }
+    ];
+
+    const summary = [
+      { category: "2024", title: "2024 英文法過去問", body: "受動態、再帰代名詞、each/every、wish、仮定法、助動詞、誤文訂正、will と be going to の違いを確認する。" },
+      { category: "2025", title: "2025 英文法過去問", body: "受動態、再帰代名詞、助動詞、完了形、each/every、S V O1 O2 構文の受動化、和文英訳を確認する。" }
+    ];
+
+    const questions = [
+      q("2024", "1-1 John has an easy job. He ( ) a lot of money to do very little. 選択肢: a has paid / b has been paying / c is paid / d is paying", ["c"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-2 Amy had a great holiday with them. She ( ). 選択肢: a really enjoyed / b really enjoyed herself / c really enjoyed itself / d really enjoyed themselves", ["b"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-3 Mary goes away ( ). 選択肢: a most of weekend / b most weekends / c the most of weekend / d the most weekends", ["b"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-4 There were a few shops in the street, but ( ) was open. 選択肢: a each of them / b either of them / c neither of them / d none of them", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-5 I'm so tired, I ( ) sleep for a week. 選択肢: a can / b could / c must / d had to", ["b"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-6 The medicine has to be taken ( ). 選択肢: a each eight hour / b each eight hours / c every eight hour / d every eight hours", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-7 I ( ) you good luck. 選択肢: a hope / b say / c suggest / d wish", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-8 He ( ) be at home by now, but I'm not sure. 選択肢: a had better / b has to / c must / d should", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "1-9 How ( ) is it since we last saw you? 選択肢: a far / b much / c long / d often", ["c"], "choice", ["a", "b", "c", "d"]),
+      q("2024", "2-1 昨日、私は体調が悪かったので、一日の大半を寝て過ごしました。I was ill yesterday. I spent ______ in bed.", ["most of the day sleeping"]),
+      q("2024", "2-2 彼は待たされるのが大嫌いです。He hates ______ waiting.", ["being kept"]),
+      q("2024", "2-3 私は美術館で息子の友人の一人に会いました。I met ______ at the museum.", ["a friend of my son's friends"]),
+      q("2024", "2-4 学生には一冊ずつ本が与えられた。The students were ______ a book.", ["each given"]),
+      q("2024", "2-5 万一状況が変化するようなことになれば連絡します。( ) the situation ( ), we'll contact you.", ["Should change", "Should the situation change"]),
+      q("2024", "2-6 彼の言葉から彼が混乱していることがわかった。His remarks suggested that he ______.", ["was confused"]),
+      q("2024", "2-7 バスには乗らない方がよい。You ______ a bus.", ["had better not take"]),
+      q("2024", "2-8 花火大会に行きたいが今晩は約束があります。I wish I ( ), but I have an appointment tonight.", ["could"]),
+      q("2024", "2-9 全員が時間通りにここにいてもらうことが必要です。It is ( ) that everyone ( ) here on time.", ["necessary be"]),
+      q("2024", "2-10 昨夜その会議に出席することができればよかったのですが。I wish I ______ the conference last night.", ["could have attended"]),
+      q("2024", "3-1 It is reported that two people were injured in the explosion. を Two people で始めて書き換えなさい。", ["Two people are reported to have been injured in the explosion"]),
+      q("2024", "3-2 Please stop interrupting me. を I wish で始めて書き換えなさい。", ["I wish you would stop interrupting me"]),
+      q("2024", "3-3 All I've eaten today is a banana. The ( ) thing I've eaten today is a banana.", ["only"]),
+      q("2024", "3-4 She worked from early in the morning until late in the evening. She worked ______.", ["the whole day"]),
+      q("2024", "3-5 I remember somebody taking me to the zoo when I was a child. I remember being ______ when I was a child.", ["taken to the zoo"]),
+      q("2024", "3-6 Some people prefer to live by themselves. Some people prefer to live ______ own.", ["on their"]),
+      q("2024", "3-7 It's time for you to go to bed. It's time you ______.", ["went to bed"]),
+      q("2024", "4-1 What kind of bike do you suggest me to buy? を全文訂正しなさい。", ["What kind of bike do you suggest buying"]),
+      q("2024", "4-2 A new bridge is building across the river. It will be finished next year. 第1文を訂正し、全文を書きなさい。", ["A new bridge is being built across the river. It will be finished next year"]),
+      q("2024", "4-3 I'm sorry I'm late, because it was a lot of traffic. を全文訂正しなさい。", ["I'm sorry I'm late, because there was a lot of traffic"]),
+      q("2024", "4-4 The both restaurants are fantastic. を全文訂正しなさい。", ["Both restaurants are fantastic"]),
+      q("2024", "4-5 The fire spread very quickly, but fortunately everyone could escape. を全文訂正しなさい。", ["The fire spread very quickly, but fortunately everyone was able to escape"]),
+      q("2024", "4-6 We woke up by a loud noise during the night. を全文訂正しなさい。", ["We were woken up by a loud noise during the night"]),
+      q("2024", "4-7 They demand that the meeting should put off till next month. を全文訂正しなさい。", ["They demand that the meeting be put off till next month"]),
+      q("2024", "5-1 will と be going to の使い方の違いを簡潔に答えなさい。", ["willはその場の決定や話し手の判断に基づく予測、be going toは以前からの計画や現在の根拠に基づく予測に使う"]),
+      q("2024", "5-2 each と every の使い方の違いを簡潔に答えなさい。", ["eachは個別に捉え2つ以上に使える。everyは全体をまとめて捉え通常3つ以上に使う"]),
+
+      q("2025", "1-1 John has an easy job. He ( ) a lot of money to do very little. 選択肢: a has paid / b has been paying / c is paid / d is paying", ["c"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-2 Amy had a great holiday with them. She ( ). 選択肢: a really enjoyed / b really enjoyed herself / c really enjoyed itself / d really enjoyed themselves", ["b"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-3 Mary goes away ( ). 選択肢: a most of weekend / b most weekends / c the most of weekend / d the most weekends", ["b"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-4 There were a few shops in the street, but ( ) was open. 選択肢: a each of them / b either of them / c neither of them / d none of them", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-5 I've been really stupid. I ( ) kick myself. 選択肢: a am able to / b can / c could / d was able to", ["c"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-6 The medicine has to be taken ( ). 選択肢: a each eight hour / b each eight hours / c every eight hour / d every eight hours", ["d"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-7 Why are you looking under the bed? Have you lost ( )? 選択肢: a anything / b anywhere / c something / d somewhere", ["c"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "1-8 We had a really good holiday. It ( ) better. 選択肢: a couldn't have been / b might be / c needn't be / d should have been", ["a"], "choice", ["a", "b", "c", "d"]),
+      q("2025", "2-1 昨日、私は体調が悪かったので、一日の大半を寝て過ごしました。I was ill yesterday. I spent ______ in bed.", ["most of the day sleeping"]),
+      q("2025", "2-2 彼は待たされるのが大嫌いです。He hates ______ waiting.", ["being kept"]),
+      q("2025", "2-3 私は美術館で息子の友人の一人に会いました。I met ______ at the museum.", ["a friend of my son's friends"]),
+      q("2025", "2-4 学生には一冊ずつ本が与えられた。The students were ______ a book.", ["each given"]),
+      q("2025", "2-5 私の隣人は塀を作ってもらっているところです。My neighbor ______.", ["is having a fence built"]),
+      q("2025", "2-6 本当だね、歩いてもいいくらいだ。Chris: The bus is stuck in traffic. Pat: Yes, we ______ walk.", ["might as well"]),
+      q("2025", "2-7 以前に一度も会ったことがなかったので、私たちは互いに自己紹介しました。We'd never met before, so we introduced ______.", ["ourselves to each other"]),
+      q("2025", "3-1 It is reported that two people were injured in the explosion. を Two people で始めて書き換えなさい。", ["Two people are reported to have been injured in the explosion"]),
+      q("2025", "3-2 Is anyone doing anything about the problem? Is anything ______?", ["being done about the problem"]),
+      q("2025", "3-3 All I've eaten today is a banana. ______ thing I've eaten today is a banana.", ["The only"]),
+      q("2025", "3-4 Some people prefer to live by themselves. Some people prefer to live ______ own.", ["on their"]),
+      q("2025", "3-5 I remember somebody taking me to the zoo when I was a child. I remember being ______ when I was a child.", ["taken to the zoo"]),
+      q("2025", "3-6 I'm surprised Liz wasn't offered the job. I'm surprised Liz didn't ______.", ["get the job"]),
+      q("2025", "4-1 When I was on holiday, my whole luggage was stolen. を全文訂正しなさい。", ["When I was on holiday, all my luggage was stolen"]),
+      q("2025", "4-2 At first I didn't like my job, but I start to enjoy it now. を全文訂正しなさい。", ["At first I didn't like my job, but I'm starting to enjoy it now"]),
+      q("2025", "4-3 We woke up by a loud noise during the night. を全文訂正しなさい。", ["We were woken up by a loud noise during the night"]),
+      q("2025", "4-4 The both restaurants are fantastic. を全文訂正しなさい。", ["Both restaurants are fantastic"]),
+      q("2025", "4-5 There's a flight to Rome tonight, but there's sure to be full. を全文訂正しなさい。", ["There's a flight to Rome tonight, but it's sure to be full"]),
+      q("2025", "4-6 I couldn't get a taxi last night, so I must walk home. を全文訂正しなさい。", ["I couldn't get a taxi last night, so I had to walk home"]),
+      q("2025", "4-7 Harry had an argument with a neighbor of his. 誤りがなければ丸を答えなさい。", ["〇", "○", "丸", "正しい"]),
+      q("2025", "5-1 私はまだその手紙を受け取っていません。ひょっとしたら間違った住所に送られたのかもしれない。", ["I haven't received the letter yet. It might have been sent to the wrong address"]),
+      q("2025", "5-2 火は瞬く間に燃え広がったが、全員逃げ出すことができた。", ["The fire spread very quickly, but fortunately everyone was able to escape"]),
+      q("2025", "5-3 彼女が私の伝言を受け取ったはずがない。そうでなければ、返事をくれただろう。", ["She can't have received my message. Otherwise, she would have replied"]),
+      q("2025", "6-1 In football, every team has eleven players. 非文法的な理由を説明し、正文に訂正しなさい。", ["フットボールの1試合では2チームを対象にするためeachを用いる。In football, each team has eleven players"]),
+      q("2025", "6-2 He needn't have got up early, so he didn't. 非文法的な理由を説明し、正文に訂正しなさい。", ["needn't haveは実際にはしたが必要なかったという意味でso he didn'tと矛盾する。He didn't need to get up early, so he didn't"]),
+      q("2025", "7-1 S plus V plus O1 plus O2 構文を取る動詞の受動化について簡潔に答えなさい。", ["原則としてO1またはO2のどちらかを主語にできる。O2を主語にすると残るO1の前に通常toまたはforを置く"]),
+      q("2025", "7-2 each と every の用法の違いを簡潔に答えなさい。", ["eachは個別に捉え2つ以上に使える。everyは全体をまとめて捉え通常3つ以上に使う"])
+    ];
+
+    function q(category, prompt, answers, type = "fill", choices = []) {
+      return { category, prompt, answers, type, choices };
+    }
+
+    return createDataset({
+      id: "englishGrammar",
+      title: "英文法 過去問 学習アプリ",
+      shortTitle: "英文法",
+      printLabel: "コミュニケーションのための英文法 過去問",
+      printPages,
+      summary,
+      questions
+    });
+  })(),
   kenpo: (() => {
     const printPages = [
       { category: "2025前期", title: "2025前期 期末試験問題", src: "./assets/prints/kenpo/2025-q-01.jpg" },
@@ -632,7 +737,7 @@ function q(category, prompt, answers, type = "fill", choices = []) {
 let printPages = [];
 let summary = [];
 let questions = [];
-let currentDataset = datasets.nihonshi;
+let currentDataset = datasets.englishGrammar;
 
 function createDataset(dataset) {
   return {
@@ -658,7 +763,7 @@ const state = {
   filter: "all",
   cardFilter: "all",
   printIndex: 0,
-  datasetId: "nihonshi"
+  datasetId: "englishGrammar"
 };
 
 const elements = {
@@ -823,7 +928,7 @@ function resetQuiz() {
 function normalize(value) {
   return value
     .trim()
-    .replace(/[\s　、。・,.\-ー－（）()「」『』]/g, "")
+    .replace(/[\s　、。・,.\-ー－（）()「」『』'’?!?:;；：]/g, "")
     .toLowerCase();
 }
 
@@ -991,7 +1096,7 @@ function getCardItems() {
 }
 
 function applyDataset(datasetId) {
-  currentDataset = datasets[datasetId] || datasets.nihonshi;
+  currentDataset = datasets[datasetId] || datasets.englishGrammar;
   printPages = currentDataset.printPages;
   summary = currentDataset.summary;
   questions = currentDataset.questions;
@@ -1016,7 +1121,7 @@ function applyDataset(datasetId) {
   updateScore();
 }
 
-applyDataset("chigaku");
+applyDataset("englishGrammar");
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
