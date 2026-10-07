@@ -145,12 +145,14 @@ function q(category, prompt, answers, type, choices = []) {
 }
     return createDataset({
       id: "koukyo",
-      title: "公共 No.8-14 学習アプリ",
+      title: "公共 No.8-19 学習アプリ",
       shortTitle: "公共",
       printLabel: "公共の授業プリント",
-      printPages,
-      summary,
-      questions
+      initialPrintIndex: 6,
+      initialCategory: "No.14",
+      printPages: [...printPages.filter((page) => !page.title.startsWith("No.14 ")), ...koukyoOctoberLesson.printPages],
+      summary: [...summary.filter((item) => !item.title.startsWith("No.14 ")), ...koukyoOctoberLesson.summary],
+      questions: [...questions.filter((item) => item.category !== "No.14"), ...koukyoOctoberLesson.questions]
     });
   })(),
   nihonshi: (() => {
@@ -1105,14 +1107,15 @@ function applyDataset(datasetId) {
   state.zoom = 100;
   state.cardIndex = 0;
   state.cardRevealed = false;
-  state.filter = "all";
-  state.cardFilter = "all";
-  state.printIndex = 0;
+  state.filter = currentDataset.initialCategory || "all";
+  state.cardFilter = state.filter;
+  state.printIndex = currentDataset.initialPrintIndex || 0;
   elements.subjectSelect.value = currentDataset.id;
   document.title = currentDataset.title;
   resetPinchState();
   setZoom(100);
   renderFilters();
+  syncScope(state.filter, { includePrint: false });
   renderSummary();
   renderPrintOptions();
   renderPrint();
@@ -1121,7 +1124,7 @@ function applyDataset(datasetId) {
   updateScore();
 }
 
-applyDataset("englishGrammar");
+applyDataset("koukyo");
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
