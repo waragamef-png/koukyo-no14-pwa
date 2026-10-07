@@ -1,4 +1,5 @@
 const datasets = {
+  chigakuKiso: createDataset(chigakuKisoLesson),
   koukyo: (() => {
 const printPages = [
   { title: "No.8 幸福・正義・自由", src: "./assets/prints/koukyo-08.jpg" },
@@ -820,6 +821,7 @@ elements.printPageSelect.addEventListener("change", (event) => {
   renderQuestions();
   renderCard();
 });
+elements.printImage.addEventListener("load", updatePrintAspect);
 elements.printFrame.addEventListener("touchstart", handlePrintTouchStart, { passive: false });
 elements.printFrame.addEventListener("touchmove", handlePrintTouchMove, { passive: false });
 elements.printFrame.addEventListener("touchend", resetPinchState);
@@ -881,6 +883,15 @@ function renderPrint() {
   elements.printImage.src = page.src;
   elements.printImage.alt = `${page.title} ${currentDataset.printLabel}`;
   elements.printPageSelect.value = String(state.printIndex);
+  if (elements.printImage.complete) {
+    updatePrintAspect();
+  }
+}
+
+function updatePrintAspect() {
+  if (elements.printImage.naturalWidth && elements.printImage.naturalHeight) {
+    elements.printFrame.style.setProperty("--print-aspect", `${elements.printImage.naturalWidth} / ${elements.printImage.naturalHeight}`);
+  }
 }
 
 function resetPrintView() {
@@ -934,13 +945,20 @@ function normalize(value) {
     .toLowerCase();
 }
 
-function isCorrect(value, answers) {
-  const normalized = normalize(value);
+function normalizeNumber(value) {
+  const normalized = value.normalize("NFKC").trim().replace(/\s/g, "").toLowerCase();
+  const match = normalized.match(/^([+-]?(?:\d+(?:\.\d*)?|\.\d+))(.*)$/);
+  return match ? `${Number(match[1])}|${match[2]}` : normalized;
+}
+
+function isCorrect(value, answers, type = "fill") {
+  const normalizeAnswer = type === "number" ? normalizeNumber : normalize;
+  const normalized = normalizeAnswer(value);
   if (!normalized) {
     return false;
   }
 
-  return answers.some((answer) => normalized === normalize(answer));
+  return answers.some((answer) => normalized === normalizeAnswer(answer));
 }
 
 function renderSummary() {
@@ -1023,7 +1041,7 @@ function renderAnswerControl(item, index) {
 
   return `
     <div class="answer-row">
-      <input data-input="${index}" type="text" autocomplete="off" aria-label="Q${index + 1} の答え" />
+      <input data-input="${index}" type="text" inputmode="${item.type === "number" ? "decimal" : "text"}" autocomplete="off" aria-label="Q${index + 1} の答え" />
       <button type="button" data-check="${index}">判定</button>
     </div>
   `;
@@ -1039,7 +1057,7 @@ function checkChoice(index, value) {
 }
 
 function checkAnswer(index, value) {
-  const correct = isCorrect(value, questions[index].answers);
+  const correct = isCorrect(value, questions[index].answers, questions[index].type);
   state.results.set(index, correct);
   const feedback = document.querySelector(`#feedback-${index}`);
   feedback.className = `feedback ${correct ? "ok" : "bad"}`;
@@ -1124,7 +1142,7 @@ function applyDataset(datasetId) {
   updateScore();
 }
 
-applyDataset("koukyo");
+applyDataset("chigakuKiso");
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

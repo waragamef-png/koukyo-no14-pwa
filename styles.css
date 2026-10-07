@@ -442,7 +442,7 @@ select.title-select {
   }
 
   .print-frame {
-    aspect-ratio: 1847 / 1260;
+    aspect-ratio: var(--print-aspect, 1847 / 1260);
     height: auto;
     max-width: 100%;
     overflow: auto;
@@ -459,5 +459,11 @@ select.title-select {
 
   .view {
     padding: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  select.title-select {
+    font-size: 18px;
   }
 }

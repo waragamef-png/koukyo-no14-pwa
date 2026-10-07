@@ -1,11 +1,19 @@
-const CACHE_NAME = "study-app-switcher-v8";
+const CACHE_NAME = "study-app-switcher-v9";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=18",
+  "./styles.css?v=19",
   "./koukyo-20261007.js?v=18",
-  "./app.js?v=18",
+  "./chigaku-kiso-20261008.js?v=19",
+  "./app.js?v=19",
   "./manifest.webmanifest",
+  "./assets/prints/chigaku-kiso/print-1.jpg",
+  "./assets/prints/chigaku-kiso/print-2.jpg",
+  "./assets/prints/chigaku-kiso/print-3.jpg",
+  "./assets/prints/chigaku-kiso/print-4.jpg",
+  "./assets/prints/chigaku-kiso/print-5.jpg",
+  "./assets/prints/chigaku-kiso/print-6.jpg",
+  "./assets/prints/chigaku-kiso/print-7.jpg",
   "./assets/prints/koukyo-08.jpg",
   "./assets/prints/koukyo-09.jpg",
   "./assets/prints/koukyo-10.jpg",
