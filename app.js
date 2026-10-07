@@ -1,4 +1,5 @@
 const datasets = {
+  koten: createDataset(kotenLesson),
   chigakuKiso: createDataset(chigakuKisoLesson),
   koukyo: (() => {
 const printPages = [
@@ -1010,6 +1011,7 @@ function renderQuestions() {
           <p>${item.prompt}</p>
           ${renderAnswerControl(item, index)}
           <div class="feedback ${feedbackClass}" id="feedback-${index}">${feedbackText}</div>
+          ${item.explanation ? `<p class="answer-explanation" ${result === undefined ? "hidden" : ""}>${item.explanation}</p>` : ""}
         </article>
       `;
     })
@@ -1062,6 +1064,10 @@ function checkAnswer(index, value) {
   const feedback = document.querySelector(`#feedback-${index}`);
   feedback.className = `feedback ${correct ? "ok" : "bad"}`;
   feedback.textContent = correct ? "正解" : `答え: ${questions[index].answers[0]}`;
+  const explanation = feedback.parentElement.querySelector(".answer-explanation");
+  if (explanation) {
+    explanation.hidden = false;
+  }
   updateScore();
 }
 
@@ -1142,7 +1148,7 @@ function applyDataset(datasetId) {
   updateScore();
 }
 
-applyDataset("chigakuKiso");
+applyDataset("koten");
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

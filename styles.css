@@ -337,6 +337,15 @@ select.title-select {
   color: var(--bad);
 }
 
+.question p.answer-explanation {
+  margin: 8px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
 .card-stage {
   display: grid;
   grid-template-columns: 42px 1fr 42px;
