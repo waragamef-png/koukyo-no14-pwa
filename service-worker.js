@@ -1,11 +1,11 @@
-const CACHE_NAME = "study-app-switcher-v10";
+const CACHE_NAME = "study-app-switcher-v11";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css?v=20",
   "./koukyo-20261007.js?v=18",
   "./chigaku-kiso-20261008.js?v=19",
-  "./koten-20261008.js?v=20",
+  "./koten-20261008.js?v=21",
   "./app.js?v=20",
   "./manifest.webmanifest",
   "./assets/prints/koten-20261008/print-01.jpg",
