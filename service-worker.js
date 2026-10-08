@@ -1,10 +1,10 @@
-const CACHE_NAME = "study-app-switcher-v11";
+const CACHE_NAME = "study-app-switcher-v12";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css?v=20",
   "./koukyo-20261007.js?v=18",
-  "./chigaku-kiso-20261008.js?v=19",
+  "./chigaku-kiso-20261008.js?v=22",
   "./koten-20261008.js?v=21",
   "./app.js?v=20",
   "./manifest.webmanifest",
@@ -19,6 +19,7 @@ const ASSETS = [
   "./assets/prints/koten-20261008/print-09.jpg",
   "./assets/prints/koten-20261008/print-10.jpg",
   "./assets/prints/koten-20261008/print-11.jpg",
+  "./assets/prints/chigaku-kiso/print-0.jpg",
   "./assets/prints/chigaku-kiso/print-1.jpg",
   "./assets/prints/chigaku-kiso/print-2.jpg",
   "./assets/prints/chigaku-kiso/print-3.jpg",
